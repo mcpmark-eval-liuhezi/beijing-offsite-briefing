@@ -111,7 +111,7 @@ Live listing of all 38 buckets in the project, plus a live object listing and bu
 | transformer_briefing | US | STANDARD | `wmt14_best_bleu_per_task.csv` — 92 bytes |
 | weave-archive-1706-03762 | US | STANDARD | 0 — empty bucket |
 
-**Summary:** 38 buckets total. 23 hold at least one object; 15 are empty (no objects). 39 objects listed across non-empty buckets (sum of the per-object counting rows above).
+**Summary:** 38 buckets total. 23 hold at least one object; 15 are empty (no objects). 33 objects listed across non-empty buckets (1 + 1 + 2 + 1 + 1 + 1 + 1 + 1 + 6 + 1 + 3 + 1 + 1 + 2 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 1 + 1 = 33).
 
 ### 5.2 Backup Copy Plan and Results
 
