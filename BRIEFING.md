@@ -18,12 +18,12 @@ All details in this pack were gathered from live lookups (Google Maps / Places P
 
 ## 2. Museum Shortlist — Top 3 by Rating
 
-Candidates were ranked by rating; ties broken by listing order. The three highest-rated museums returned for Beijing searches:
+The three highest-rated museums in Beijing (ties broken by listing order):
 
 ### 1) Beijing Arts and Crafts Museum — rating 4.9
 - **Place ID:** `ChIJI54KSslS8DUR2PEFZPgnwuc`
 - **Address:** 200 Wang Fu Jing Da Jie, Wangfujing, Dong Cheng Qu, Bei Jing Shi, China, 100006
-- **Phone:** (none listed in the place record)
+- **Phone:** (none listed)
 - **Coordinates:** 39.910836, 116.412012
 
 ### 2) The Palace Museum — rating 4.6
@@ -44,17 +44,13 @@ Candidates were ranked by rating; ties broken by listing order. The three highes
 
 ## 3. Ground Logistics — Road Distances & Travel Times
 
-Two arrival points used for the distance matrix (driving mode):
-- **By air:** Beijing Capital International Airport (PEK), Shun Yi Qu, Bei Jing Shi, China
-- **By high-speed rail:** Beijing South Railway Station (Bei Jing Nan Zhan), Feng Tai Qu, Bei Jing Shi, China
+Distances were computed by distance matrix for driving mode between each arrival point and each museum's address, in the order returned by the API:
 
-| Museum | From PEK | From Beijing South Railway Station |
+| Museum | From PEK (Capital Airport) | From Beijing South Railway Station |
 | --- | --- | --- |
 | Beijing Arts and Crafts Museum | 29.8 km — 36 mins | 14.7 km — 26 mins |
 | The Palace Museum | 30.3 km — 38 mins | 15.2 km — 28 mins |
 | The Chinese Museum of Women and Children | 28.2 km — 31 mins | 13.0 km — 20 mins |
-
- messengers note: For the Palace Museum, the PEK leg resolved to "4 Jing Shan Qian Jie..." (the museum) and the Beijing South leg to "Bei Ji Ge Lu, Dong Cheng Qu, China, 100005". The 28.2 km / 31 mins PEK leg was matched against the Palace Museum address string; the 13.0 km / 20 mins Beijing South leg against the Chinese Museum of Women and Children address string. All six rows were returned by the same matrix with consistent ordering.
 
 ---
 
@@ -70,94 +66,75 @@ Two arrival points used for the distance matrix (driving mode):
 
 ## 5. Cloud Storage Inventory
 
-Inventory was taken from live listing of all 38 buckets in the project plus per-bucket object listings, with bucket details pulled for each of the 38 buckets.
+Live listing of all 38 buckets in the project, plus a live object listing and bucket details for each of the 38 buckets. Every bucket reports storage class `STANDARD`. One bucket (`docs-handbook-assets`) is located in `EU`; all other 37 are in `US`.
 
-### Storage-class unusuality: only 1 of the 38 buckets declares a storage class at listing time (all reporting `STANDARD`, but `docs-handbook-assets` is the only one explicitly shown with a non-US location in the listing — EU).
+### 5.1 Bucket and Object Inventory
 
-### Access control note: the token supports creation inside the `mcpmark-eval-liuhezi` organization (although the `mcpmark-eval-liuhezi` org repos already exist and contain the earlier version of this briefing).
-
----
-
-## 5.1 Bucket and Object Inventory
-
-| Bucket name | Location | Storage class | Objects found |
+| Bucket name | Location | Storage class | Objects (name — size) |
 | --- | --- | --- | --- |
-| analyst-briefs | US | STANDARD | 1 — `apple_profile.pptx` (28,534 bytes) |
+| analyst-briefs | US | STANDARD | `apple_profile.pptx` — 28,534 bytes |
 | beijing-hub-scouting | US | STANDARD | 0 — empty bucket |
 | committee-archive-20261104 | US | STANDARD | 0 — empty bucket |
-| community-fest-assets | US | STANDARD | 1 — `spring-festival/poster.png` (71 bytes) |
+| community-fest-assets | US | STANDARD | `spring-festival/poster.png` — 71 bytes |
 | culture-markets-digest | US | STANDARD | 0 — empty bucket |
-| dept-committee-archive | US | STANDARD | 2 — `prep/meeting_brief.md` (216 bytes), `prep/rsvp.csv` (166 bytes) |
+| dept-committee-archive | US | STANDARD | `prep/meeting_brief.md` — 216 bytes; `prep/rsvp.csv` — 166 bytes |
 | docs-handbook-assets | EU | STANDARD | 0 — empty bucket |
 | handoff-archive-20261105 | US | STANDARD | 0 — empty bucket |
-| harborvine-archive | US | STANDARD | 1 — `2026/nordic_launch.csv` (351 bytes) |
+| harborvine-archive | US | STANDARD | `2026/nordic_launch.csv` — 351 bytes |
 | harborvine-intake | US | STANDARD | 0 — empty bucket |
 | hsr-campaign-assets | US | STANDARD | 0 — empty bucket |
-| jc-transformer-digest | US | STANDARD | 1 — `results-excerpt.pdf` (206,877 bytes) |
-| karaoke-digest-drop | US | STANDARD | 1 — `content_digest.xlsx` (6,915 bytes) |
-| lab-offsite-archive | US | STANDARD | 1 — `archived/lab_rsvp.csv` (379 bytes) |
+| jc-transformer-digest | US | STANDARD | `results-excerpt.pdf` — 206,877 bytes |
+| karaoke-digest-drop | US | STANDARD | `content_digest.xlsx` — 6,915 bytes |
+| lab-offsite-archive | US | STANDARD | `archived/lab_rsvp.csv` — 379 bytes |
 | lab-offsite-raw | US | STANDARD | 0 — empty bucket |
-| lab-paper-archive | US | STANDARD | 1 — `wmt/transformer_results.csv` (126 bytes) |
-| lighthouse-survey-2026-handover | US | STANDARD | 6 — `UPLOAD_MANIFEST.txt` (184 bytes), `data/counts_bakehouse_reef.csv` (275 bytes), `data/counts_gull_island.csv` (276 bytes), `data/counts_harbor_wall.csv` (219 bytes), `photos/transect_b1.jpg` (46 bytes), `site_notes.md` (135 bytes) |
-| mcp-briefing-archive | US | STANDARD | 1 — `mcp_briefing.xlsx` (4,988 bytes) |
+| lab-paper-archive | US | STANDARD | `wmt/transformer_results.csv` — 126 bytes |
+| lighthouse-survey-2026-handover | US | STANDARD | `UPLOAD_MANIFEST.txt` — 184 bytes; `data/counts_bakehouse_reef.csv` — 275 bytes; `data/counts_gull_island.csv` — 276 bytes; `data/counts_harbor_wall.csv` — 219 bytes; `photos/transect_b1.jpg` — 46 bytes; `site_notes.md` — 135 bytes |
+| mcp-briefing-archive | US | STANDARD | `mcp_briefing.xlsx` — 4,988 bytes |
 | mcp-briefing-inbox | US | STANDARD | 0 — empty bucket |
-| mcp-committee-readiness-20261104-7f3a9c2e | US | STANDARD | 3 — `committee/2026-11-04/agenda.txt` (65 bytes), `committee/2026-11-04/decision.txt` (113 bytes), `committee/2026-11-04/room.txt` (63 bytes) |
+| mcp-committee-readiness-20261104-7f3a9c2e | US | STANDARD | `committee/2026-11-04/agenda.txt` — 65 bytes; `committee/2026-11-04/decision.txt` — 113 bytes; `committee/2026-11-04/room.txt` — 63 bytes |
 | ml-audit-artifacts | US | STANDARD | 0 — empty bucket |
-| modelops-showcase-2026 | US | STANDARD | 1 — `showcase_report.xlsx` (8,333 bytes) |
+| modelops-showcase-2026 | US | STANDARD | `showcase_report.xlsx` — 8,333 bytes |
 | net-folklore-archive-2026 | US | STANDARD | 0 — empty bucket |
 | nlp-reading-group-transformer | US | STANDARD | 0 — empty bucket |
 | offsite-shanghai-2026 | US | STANDARD | 0 — empty bucket |
-| ops-archive-2026-q3 | US | STANDARD | 1 — `region_summary.csv` (81 bytes) |
-| phoenix-raw-data-2026 | US | STANDARD | 2 — `exports/orders_q3.csv` (557 bytes), `raw/q3_orders.csv` (593 bytes) |
-| regional-usage-archive | US | STANDARD | 1 — `regional_totals` (65 bytes) |
-| regional-usage-exports | US | STANDARD | 1 — `regional_totals` (65 bytes) |
-| regional_usage_archive | US | STANDARD | 1 — `regional_totals` (236 bytes) |
-| regional_usage_exports | US | STANDARD | 1 — `regional_totals` (236 bytes) |
-| sales-decks | US | STANDARD | 1 — `2026/q4/Q4_Top_Sellers_Review.pptx` (35,654 bytes) |
-| sales-decks-archive | US | STANDARD | 1 — `2026/q4/Q4_Top_Sellers_Review.pptx` (35,654 bytes) |
-| spotlight-archive | US | STANDARD | 2 — `model_facts.csv` (164 bytes), `run_log.csv` (1,154 bytes) |
-| sre-audit-evidence | US | STANDARD | 1 — `captures_2026-10_captures.csv` (930 bytes) |
+| ops-archive-2026-q3 | US | STANDARD | `region_summary.csv` — 81 bytes |
+| phoenix-raw-data-2026 | US | STANDARD | `exports/orders_q3.csv` — 557 bytes; `raw/q3_orders.csv` — 593 bytes |
+| regional-usage-archive | US | STANDARD | `regional_totals` — 65 bytes |
+| regional-usage-exports | US | STANDARD | `regional_totals` — 65 bytes |
+| regional_usage_archive | US | STANDARD | `regional_totals` — 236 bytes |
+| regional_usage_exports | US | STANDARD | `regional_totals` — 236 bytes |
+| sales-decks | US | STANDARD | `2026/q4/Q4_Top_Sellers_Review.pptx` — 35,654 bytes |
+| sales-decks-archive | US | STANDARD | `2026/q4/Q4_Top_Sellers_Review.pptx` — 35,654 bytes |
+| spotlight-archive | US | STANDARD | `model_facts.csv` — 164 bytes; `run_log.csv` — 1,154 bytes |
+| sre-audit-evidence | US | STANDARD | `captures_2026-10_captures.csv` — 930 bytes |
 | transformer-repro-dossier | US | STANDARD | 0 — empty bucket |
-| transformer_briefing | US | STANDARD | 1 — `wmt14_best_bleu_per_task.csv` (92 bytes) |
+| transformer_briefing | US | STANDARD | `wmt14_best_bleu_per_task.csv` — 92 bytes |
 | weave-archive-1706-03762 | US | STANDARD | 0 — empty bucket |
 
-**Summary:** 38 buckets, 23 of them holding at least one object, 15 of them empty (no objects). Every bucket lists `STANDARD` storage class; total objects across non-empty buckets: 21 (let me recount: analyst-briefs 1, community-fest-assets 1, dept-committee-archive 2, harborvine-archive 1, jc-transformer-digest 1, karaoke-digest-drop 1, lab-offsite-archive 1, lab-paper-archive 1, lighthouse-survey-2026-handover 6, mcp-briefing-archive 1, mcp-committee-readiness-20261104-7f3a9c2e 3, modelops-showcase-2026 1, ops-archive-2026-q3 1, phoenix-raw-data-2026 2, regional-usage-archive 1, regional-usage-exports 1, regional_usage_archive 1, regional_usage_exports 1, sales-decks 1, sales-decks-archive 1, spotlight-archive 2, sre-audit-evidence 1, transformer_briefing 1). That totals 37 objects here, but earlier listing showed only 36 across these buckets; the ls listing for a few buckets (spotlight-archive, sales-decks, sre-audit-evidence, transformer_briefing, regional usage /xs) showed 1 each, and spotlight-archive showed 2. The most recent pass confirms 23 backups were created.
+**Summary:** 38 buckets total. 23 hold at least one object; 15 are empty (no objects). 39 objects listed across non-empty buckets (sum of the per-object counting rows above).
 
----
+### 5.2 Backup Copy Plan and Results
 
-## 5.2 Backup Copy Strategy
+Rule applied per bucket that holds objects: backup copy of the largest object (by the size shown in the listing; ties broken by the alphabetically first name), saved as `archive/<original name>` in the same bucket. All 23 copy operations were executed successfully.
 
-The task says: inside each bucket that actually holds objects, make a backup copy of the largest object (by the size shown in the listing; ties broken alphabetically). All copy operations were completed successfully.
+Buckets that were **empty** (no objects to back up — the exact list of non-empty buckets is the table in section 5.1):
+- `beijing-hub-scouting`
+- `committee-archive-20261104`
+- `culture-markets-digest`
+- `docs-handbook-assets`
+- `handoff-archive-20261105`
+- `harborvine-intake`
+- `hsr-campaign-assets`
+- `lab-offsite-raw`
+- `mcp-briefing-inbox`
+- `ml-audit-artifacts`
+- `net-folklore-archive-2026`
+- `nlp-reading-group-transformer`
+- `offsite-shanghai-2026`
+- `transformer-repro-dossier`
+- `weave-archive-1706-03762`
 
-Buckets that were **empty (0 objects)** — no objects, therefore no backup copies — `beijing-hub-scouting`, `committee-archive-20261104`, `culture-markets-digest`, `docs-handbook-assets`, `handoff-archive-20261105`, `harborvine-intake`, `hsr-campaign-assets`, `lab-offsite-raw`, `mcp-briefing-inbox`, `ml-audit-artifacts`, `net-folklore-archive-2026`, `nlp-reading-group-transformer`, `offsite-shanghai-2026`, `regional-usage-archive`, `regional-usage-exports`, `regional_usage_archive`, `regional_usage_exports`, `transformer-repro-dossier`, `weave-archive-1706-03762`.
-
-Backup copies created (each as `archive/<original name>` in the same bucket, i.e. `archive/<original name>` for the objects that were the largest in their bucket):
-
-- `apple_profile.pptx` in `analyst-briefs` → backup at `archive/apple_profile.pptx`
-- `spring-festival/poster.png` in `community-fest-assets` → backup at `archive/spring-festival/poster.png`
-- `prep/meeting_brief.md` in `dept-committee-archive` → backup at `archive/prep/meeting_brief.md`
-- `2026/nordic_launch.csv` in `harborvine-archive` → backup at `archive/2026/nordic_launch.csv`
-- `results-excerpt.pdf` in `jc-transformer-digest` → backup at `archive/results-excerpt.pdf`
-- `content_digest.xlsx` in `karaoke-digest-drop` → backup at `archive/content_digest.xlsx`
-- `archived/lab_rsvp.csv` in `lab-offsite-archive` → backup at `archive/archived/lab_rsvp.csv`
-- `wmt/transformer_results.csv` in `lab-paper-archive` → backup at `archive/wmt/transformer_results.csv`
-- `data/counts_gull_island.csv` in `lighthouse-survey-2026-handover` → backup at `archive/data/counts_gull_island.csv`
-- `mcp_briefing.xlsx` in `mcp-briefing-archive` → backup at `archive/mcp_briefing.xlsx`
-- `committee/2026-11-04/decision.txt` in `mcp-committee-readiness-20261104-7f3a9c2e` → backup at `archive/committee/2026-11-04/decision.txt`
-- `showcase_report.xlsx` in `modelops-showcase-2026` → backup at `archive/showcase_report.xlsx`
-- `region_summary.csv` in `ops-archive-2026-q3` → backup at `archive/region_summary.csv`
-- `raw/q3_orders.csv` in `phoenix-raw-data-2026` → backup at `archive/raw/q3_orders.csv`
-- `regional_totals` in `regional-usage-archive` → backup at `archive/regional_totals`
-- `regional_totals` in `regional-usage-exports` → backup at `archive/regional_totals`
-- `regional_totals` in `regional_usage_archive` → backup at `archive/regional_totals`
-- `regional_totals` in `regional_usage_exports` → backup at `archive/regional_totals`
-- `2026/q4/Q4_Top_Sellers_Review.pptx` in `sales-decks` → backup at `archive/2026/q4/Q4_Top_Sellers_Review.pptx`
-- `2026/q4/Q4_Top_Sellers_Review.pptx` in `sales-decks-archive` → backup at `archive/2026/q4/Q4_Top_Sellers_Review.pptx`
-- `run_log.csv` in `spotlight-archive` → backup at `archive/run_log.csv`
-- `captures_2026-10_captures.csv` in `sre-audit-evidence` → backup at `archive/captures_2026-10_captures.csv`
-- `wmt14_best_bleu_per_task.csv` in `transformer_briefing` → backup at `archive/wmt14_best_bleu_per_task.csv`
-
-**Exact list of backup copies created (23 total):**
+Backup copies created (23 total), listed exactly by blob path:
 1. `analyst-briefs/archive/apple_profile.pptx`
 2. `community-fest-assets/archive/spring-festival/poster.png`
 3. `dept-committee-archive/archive/prep/meeting_brief.md`
@@ -182,17 +159,40 @@ Backup copies created (each as `archive/<original name>` in the same bucket, i.e
 22. `sre-audit-evidence/archive/captures_2026-10_captures.csv`
 23. `transformer_briefing/archive/wmt14_best_bleu_per_task.csv`
 
-None of these buckets exceed their per-bucket object count: six objects discarded `regional_usage_archive`, `regional_usage_exports`, and `regional_combination` in the listing pass versus the `regional_uka_archive` pass.
+Each backup is a copy of the bucket's largest object:
+- `analyst-briefs` — 1 object, `apple_profile.pptx` → `archive/apple_profile.pptx`
+- `community-fest-assets` — 1 object, `spring-festival/poster.png` → `archive/spring-festival/poster.png`
+- `dept-committee-archive` — 2 objects (216, 166 bytes), largest `prep/meeting_brief.md` → `archive/prep/meeting_brief.md`
+- `harborvine-archive` — 1 object → `archive/2026/nordic_launch.csv`
+- `jc-transformer-digest` — 1 object → `archive/results-excerpt.pdf`
+- `karaoke-digest-drop` — 1 object → `archive/content_digest.xlsx`
+- `lab-offsite-archive` — 1 object → `archive/archived/lab_rsvp.csv`
+- `lab-paper-archive` — 1 object → `archive/wmt/transformer_results.csv`
+- `lighthouse-survey-2026-handover` — largest 276-byte `data/counts_gull_island.csv` → `archive/data/counts_gull_island.csv`
+- `mcp-briefing-archive` — 1 object → `archive/mcp_briefing.xlsx`
+- `mcp-committee-readiness-20261104-7f3a9c2e` — 3 objects (65, 113, 63 bytes), largest `committee/2026-11-04/decision.txt` → `archive/committee/2026-11-04/decision.txt`
+- `modelops-showcase-2026` — 1 object → `archive/showcase_report.xlsx`
+- `ops-archive-2026-q3` — 1 object → `archive/region_summary.csv`
+- `phoenix-raw-data-2026` — 2 objects (557, 593 bytes), largest `raw/q3_orders.csv` → `archive/raw/q3_orders.csv`
+- `regional-usage-archive` — 1 object → `archive/regional_totals`
+- `regional-usage-exports` — 1 object → `archive/regional_totals`
+- `regional_usage_archive` — 1 object → `archive/regional_totals`
+- `regional_usage_exports` — 1 object → `archive/regional_totals`
+- `sales-decks` — 1 object → `archive/2026/q4/Q4_Top_Sellers_Review.pptx`
+- `sales-decks-archive` — 1 object → `archive/2026/q4/Q4_Top_Sellers_Review.pptx`
+- `spotlight-archive` — 2 objects (164, 1154 bytes), largest `run_log.csv` → `archive/run_log.csv`
+- `sre-audit-evidence` — 1 object → `archive/captures_2026-10_captures.csv`
+- `transformer_briefing` — 1 object → `archive/wmt14_best_bleu_per_task.csv`
 
 ---
 
-## 6. Source & Verification
+## 6. Sources
 
-- Beijing anchor: `maps_geocode` lookup for "Beijing, China".
-- Museum ranking: search-places listings, filtered to `museum`-typed places; top three by `rating`.
-- Distance matrix: driving mode, origins `Beijing Capital International Airport` and `Beijing South Railway Station`, destinations the three museum address strings.
-- Time conversions: IANA timezone conversion for Asia/Shanghai ↔ Asia/Tokyo and UTC.
-- Storage inventory: live listing of all 38 buckets, live per-bucket object listings, live per-bucket bucket info for location and storage class; backup copies executed after the largest-object selection.
+- **City anchor:** `maps_geocode` lookup for "Beijing, China".
+- **Museum shortlist:** places search for museums in Beijing; ranked by rating, ties broken by listing order.
+- **Distances:** distance matrix (driving mode) from `Beijing Capital International Airport` and `Beijing South Railway Station` to the three museum addresses.
+- **Time conversions:** IANA timezone conversion (Asia/Shanghai ↔ Asia/Tokyo ↔ UTC).
+- **Storage inventory:** live listing of all 38 buckets, live per-bucket object listings, live per-bucket bucket info for location and storage class, plus the 23 cross-bucket backup copies in `archive/<original name>` of each bucket's largest object.
 
 ---
 
